@@ -1,9 +1,15 @@
 from flask import Flask, render_template, request
 import requests
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Access the API key
+API_KEY = os.getenv("WEATHER_API_KEY")
 
 app = Flask(__name__)
-
-API_KEY = "40dc3d83a552a6ce4f2d6261603144b1"  # Replace with your API key
 
 @app.route("/", methods=["GET", "POST"])
 def index():
